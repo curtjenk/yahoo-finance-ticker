@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="footables/css/footable.core.css">
+    <link rel="stylesheet" type="text/css" href="footables/css/footable.standalone.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="header">
+        <div id="what-ticker">
+            What ticker do you want to search for?
+        </div>
+        <form id="ticker-search">
+            <input type="text" id="symbol" placeholder="e.g. GOOG, separate multiple tickers by comma">
+            <input type="submit" value="Get me the quote!!">
+        </form>
+    </div>
+    <div id="stock-details">
+        <input type="text" id="filter">
+        <table border="1" class="footable table" data-filter="#filter" data-page-size="10">
+            <thead>
+                <tr>
+                    <th>Stock Symbol</th>
+                    <th>Company Name</th>
+                    <th data-type="numeric" data-sort-initial="true">Ask Price</th>
+                    <th data-hide="phone" data-type="numeric">Daily Change</th>
+                    <th data-hide="phone" data-type="numeric">Day High</th>
+                </tr>
+            </thead>
+            <tbody id="ticker-body">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <div class="pagination pagination-centered hide-if-no-paging"></div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="footables/js/footable.js"></script>
+    <script type="text/javascript" src="footables/js/footable.sort.js"></script>
+    <script type="text/javascript" src="footables/js/footable.filter.js"></script>
+    <script type="text/javascript" src="footables/js/footable.paginate.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+    <!-- scripts -->
+    <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
