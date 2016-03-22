@@ -10,17 +10,29 @@
         margin: auto;
         padding: 15px;
     }
-    
-    table {
+    .table-options {
+        margin-bottom: 10px;
+        height: 20px;
+    }
+    .filtering {
+        float: left;
+    }
+    .paging {
+        float: right;
+    }
+
+    .table-wrapper {
+        clear: both;
         width: 100%;
+        margin-top: 15px;
     }
     
     .red {
-        background-color: red;
+        color: red;
     }
 
     .green {
-        background-color: green;
+        color: green;
     }
 
     td,
@@ -33,3 +45,8 @@
     input[type='text'] {
         width: 300px;
     }
+    input[type='submit'] {
+        border-radius: 5px;
+        background-color: lightgreen;
+    }
+    

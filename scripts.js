@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
-
+    //Initialize FooTable.
+    // a self invoking function
+    $(function() {
+        $('.footable').footable({});
+    });
     //---------------
 
     $('#ticker-search').submit(function() {
@@ -10,6 +14,14 @@ $(document).ready(function() {
         $.getJSON(url, showResults);
         // console.log(url);
 
+    });
+
+    $("#page-size").bind('change', function(e) {
+        var value = $(this).val();
+        $('table').attr('data-page-size', value);
+        $('.footable').removeClass('footable-loaded');
+        $('.footable').trigger('footable_redraw'); //force a redraw
+        $('.footable').trigger('footable_initialize');
     });
 });
 
@@ -26,12 +38,9 @@ function showResults(data) {
         newHtml += infoToHtml(stockInfo);
     }
 
-    $('#ticker-body').html(newHtml);
-    //Initialize FooTable.
-    // a self invoking function
-    $(function() {
-        $('.footable').footable({});
-    });
+    $('#ticker-body').html(newHtml).trigger('footable_redraw');
+
+    colorize();
 }
 
 function infoToHtml(item) {
@@ -39,12 +48,24 @@ function infoToHtml(item) {
     var newHtml = '<tr><td>' + item.Symbol + '</td>';
     newHtml += '<td>' + item.Name + '</td>';
     newHtml += '<td>' + item.Ask + '</td>';
-    if (item.Change > 0) {
-        newHtml += '<td class="green">' + item.Change + '</td>';
-    } else {
-        newHtml += '<td class="red">' + item.Change + '</td>';
-    }
-
+    newHtml += '<td class="add-color numeric">' + item.Change + '</td>';
     newHtml += '<td>' + item.DaysHigh + '</td></tr>';
     return newHtml;
+}
+
+function colorize() {
+    var toColorize = $('.add-color');
+    $('.add-color').each(function(index) {
+        var contents = $(this).html();
+        if ($(this).hasClass('numeric')) {
+            if (!isNaN(contents)) {
+                if (contents > 0) {
+                    $(this).addClass('green');
+                } else if (contents < 0) {
+                    $(this).addClass('red');
+                }
+            }
+        } //else check for some other type
+
+    });
 }

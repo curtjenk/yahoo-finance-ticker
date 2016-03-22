@@ -21,34 +21,45 @@
         </form>
     </div>
     <div id="stock-details">
-        <input type="text" id="filter">
-        <table border="1" class="footable table" data-filter="#filter" data-page-size="10">
-            <thead>
-                <tr>
-                    <th>Stock Symbol</th>
-                    <th>Company Name</th>
-                    <th data-type="numeric" data-sort-initial="true">Ask Price</th>
-                    <th data-hide="phone" data-type="numeric">Daily Change</th>
-                    <th data-hide="phone" data-type="numeric">Day High</th>
-                </tr>
-            </thead>
-            <tbody id="ticker-body">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="2">
-                        <div class="pagination pagination-centered hide-if-no-paging"></div>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="table-options">
+            <div class="filtering">
+                <label>Filter</label>
+                <input type="text" id="filter">
+            </div>
+            <div class="paging">
+                <label>Page Size</label>
+                <input id="page-size" type="number" id="page-size" min="5" max="15" step="5" value="5">
+            </div>
+        </div>
+        <div class="table-wrapper">
+            <table border="1" class="footable table" data-filter="#filter" data-page-size="5">
+                <thead>
+                    <tr>
+                        <th>Stock Symbol</th>
+                        <th>Company Name</th>
+                        <th data-type="numeric" data-sort-initial="true">Ask Price</th>
+                        <th data-hide="phone" data-type="numeric">Daily Change</th>
+                        <th data-hide="phone" data-type="numeric">Day High</th>
+                    </tr>
+                </thead>
+                <tbody id="ticker-body">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <div class="pagination pagination-centered hide-if-no-paging"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="footables/js/footable.js"></script>
